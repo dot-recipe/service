@@ -8,9 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,10 +49,10 @@ public class Recipe {
   @ToString.Exclude
   private List<Instruction> instructions;
 
-  @OneToMany(fetch = FetchType.LAZY)
-  @JoinColumn
+  @ManyToMany
+  @JoinTable
   @ToString.Exclude
-  private List<Ingredient> ingredients;
+  private Set<Ingredient> ingredients;
   
   @Lob
   @Column

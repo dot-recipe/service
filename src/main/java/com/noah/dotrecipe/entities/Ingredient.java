@@ -7,7 +7,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
+import java.util.Set;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +30,9 @@ public class Ingredient {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
+  
+  @ManyToMany
+  private Set<Recipe> recipe;
 
   @Column(nullable = false)
   private String name;
