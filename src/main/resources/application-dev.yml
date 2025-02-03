@@ -1,0 +1,3 @@
+DATASOURCE.PASSWORD: mypassword
+DATASOURCE.USERNAME: myuser
+DATASOURCE.URL: jdbc:postgresql://localhost:5432/mydatabase
